@@ -1,1 +1,1 @@
-include ':app', ':butterfly-master'
+include ':app'
