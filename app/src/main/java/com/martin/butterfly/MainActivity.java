@@ -3,6 +3,8 @@ package com.martin.butterfly;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.martin.butterfly.master.ButterFlyDialog;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

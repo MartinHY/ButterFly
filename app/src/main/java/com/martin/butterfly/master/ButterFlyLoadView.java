@@ -2,6 +2,7 @@ package com.martin.butterfly.master;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -32,8 +33,10 @@ public class ButterFlyLoadView extends ImageView {
 
     private String loadingStr = "Loading...";
 
+    private int figureId;
+
     public ButterFlyLoadView(Context context) {
-        super(context, null);
+        this(context, null);
     }
 
     public ButterFlyLoadView(Context context, AttributeSet attrs) {
@@ -45,10 +48,25 @@ public class ButterFlyLoadView extends ImageView {
         return BitmapFactory.decodeResource(getResources(), resId);
     }
 
+    private void getSrcFromAttrs(Context context, AttributeSet attrs) {
+        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ButterFlyLoadView);
+        try {
+            if (a != null) {
+                figureId = a.getResourceId(R.styleable.ButterFlyLoadView_figure,R.drawable.figure);
+            }
+        } finally {
+            if (a != null) {
+                a.recycle();
+            }
+            invalidate();
+        }
+        viewInit();
+    }
+
     private void viewInit() {
 
         flyDrawable = new ButterFlyDrawable();
-        flyDrawable.setFigure(loadBitmap(R.drawable.butterflycolor));
+        flyDrawable.setFigure(loadBitmap(figureId));
 
         height = Util.getScreenHeight(getContext()) - Util.getStatusBarHeight(getContext());// 去掉通知栏的高度
         width = Util.getScreenWidth(getContext());

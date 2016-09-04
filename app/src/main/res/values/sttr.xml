@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ButterFlyLoadView">
+        <attr name="figure" format="reference"></attr>
+    </declare-styleable>
+
+</resources>

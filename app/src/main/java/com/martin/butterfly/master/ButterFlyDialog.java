@@ -1,4 +1,4 @@
-package com.martin.butterfly;
+package com.martin.butterfly.master;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
 
+import com.martin.butterfly.R;
 import com.martin.butterfly.master.ButterFlyLoadView;
 import com.martin.butterfly.master.Util;
 
