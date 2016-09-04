@@ -1,6 +1,8 @@
 # ButterFly
 it`s a amazing butterflying dialog
 
+Thanks to [SVG2Drawable](https://github.com/StanKocken/SVG2Drawable) 
+
 ![pre.gif](https://github.com/MartinBZDQSM/ButterFly/blob/master/app/src/main/res/raw/butterfly.gif)
 
 ##**License**
