@@ -2,12 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="horizontal">
 
     <com.martin.butterfly.master.ButterFlyLoadView
         android:id="@+id/mbutterfly_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:figure="@drawable/figure"
+        />
 
 </LinearLayout>

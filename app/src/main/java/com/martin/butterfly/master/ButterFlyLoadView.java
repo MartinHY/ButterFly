@@ -41,7 +41,7 @@ public class ButterFlyLoadView extends ImageView {
 
     public ButterFlyLoadView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        viewInit();
+        getSrcFromAttrs(context, attrs);
     }
 
     private Bitmap loadBitmap(int resId) {
@@ -52,21 +52,22 @@ public class ButterFlyLoadView extends ImageView {
         final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ButterFlyLoadView);
         try {
             if (a != null) {
-                figureId = a.getResourceId(R.styleable.ButterFlyLoadView_figure,R.drawable.figure);
+                figureId = a.getResourceId(R.styleable.ButterFlyLoadView_figure, 0);
             }
         } finally {
             if (a != null) {
                 a.recycle();
             }
+            viewInit();
             invalidate();
         }
-        viewInit();
     }
 
     private void viewInit() {
 
         flyDrawable = new ButterFlyDrawable();
-        flyDrawable.setFigure(loadBitmap(figureId));
+        if (figureId != 0)
+            flyDrawable.setFigure(loadBitmap(figureId));
 
         height = Util.getScreenHeight(getContext()) - Util.getStatusBarHeight(getContext());// 去掉通知栏的高度
         width = Util.getScreenWidth(getContext());
